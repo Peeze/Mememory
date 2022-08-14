@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mememory</title>
+
+    <style>
+        * { padding: 0; margin: 0; }
+        canvas { background: #eee; display: block; margin: 0 auto; }
+        .container {
+            position:absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            margin: auto;
+            /*display: none;*/
+            justify-content: center;
+            align-items: center;}
+
+        .card {
+            height: 200px;
+            width: 200px;
+            /* background-color: lightgreen; */
+            border-style: solid;
+            border-width: 0.5px;
+        }
+
+        .card:hover {
+            -webkit-transform: scale(0.98);
+            -ms-transform: scale(0.98);
+            transform: scale(0.98);
+        }
+
+        .card.removed:hover {
+            -webkit-transform: none;
+            -ms-transform: none;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="setupContainer" style="display: flex;">
+    <form onsubmit="return newGame();" method="post" name="setupForm">
+        <h1>Mememory</h1>
+        <a href="https://github.com/Peeze" target="_blank" style="text-decoration: none; color: #000000;">(c) Peeze 2022</a><br><br>
+        <label for="player0">Player 1:</label>
+        <input type="text" id="player0" name="player0" value="Player 1"><br><br>
+        <label for="player1">Player 2:</label>
+        <input type="text" id="player1" name="player1" value="Player 2"><br><br>
+        <label>Size:</label>
+        <input type="number" id="M" value="4" size=4> x <input type="number" id="N" value="5" size=4>
+        <br><br>
+        <input type="submit" value="Go!" name="setupSubmit">
+    </form>
+</div>
+
+<div class="container" id="memoryContainer" style="display: none;">
+    <table>
+        <tbody id="memoryBoard">
+        </tbody>
+    </table>
+
+    <table>
+        <tbody id="scoreTable">
+            <tr>
+                <td><b>Score</b></td>
+            </tr>
+            <tr>
+                <td id="playerName0">Player 1:</td><td></td><td id="playerScore0">0</td>
+            </tr>
+            <tr>
+                <td id="playerName1">Player 2:</td><td></td><td id="playerScore1">0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="mememory.js"></script>
+
+</body>
+</html>
