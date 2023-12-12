@@ -76,7 +76,7 @@ class Mememory {
         // Fetch memes
         let numMemes = Math.ceil(this.M * this.N / 2);
 
-        await fetch(`https://meme-api.herokuapp.com/gimme/${numMemes.toString()}`)
+        await fetch(`https://meme-api.com/gimme/${numMemes.toString()}`)
         .then(response => response.json())
         .then(responseData => {
             this.images = [...Array(numMemes)].map(
